@@ -1,13 +1,20 @@
 # Wikipedia Article Traffic Analysis for Rare Diseases
+### Author: Amit Peled
 
 ## Project Overview
 This project analyzes monthly pageview traffic data for Wikipedia articles related to rare diseases, which we obtained from a subset of the "English Wikipedia that represents a large number of articles related to rare diseases. This list of pages was collected by using a database of rare diseases maintained by the [National Organization for Rare Diseases (NORD)](https://rarediseases.org) and matching them to Wikipedia articles that are either about a rare disease or have a section that mentions a rare disease." Data dates range from July 1, 2015, to September 30, 2024. The data is sourced from the [Wikimedia Analytics Pageviews API](https://www.mediawiki.org/wiki/Wikimedia_REST_API). The purpose of this analysis is to observe trends in article traffic over time, focusing on different access types: desktop, mobile-app, and mobile-web.
 
 ## Data Collection
 * **API**: [Wikimedia Analytics Pageviews API](https://www.mediawiki.org/wiki/Wikimedia_REST_API)
-* **Data**: Monthly pageviews for articles related to rare diseases
+* **Data**: Monthly pageviews for articles related to rare diseases. Each record in the JSON files includes:
+  * `project`: The project name (e.g., "en.wikipedia").
+  * `article`: The article title.
+  * `granularity`: Set to "monthly".
+  * `timestamp`: The month for the pageviews.
+  * `agent`: The type of agent (e.g., "user").
+  * `views`: The number of pageviews for the month.
 * **Access Types**: Desktop, mobile-app, mobile-web
-* **Data Storage**: JSON files with time series data for each article in the specific subset
+* **Data Storage**: The data is saved in JSON files with time series data for each article:
   * `rare-disease_monthly_mobile_201507-202409.json`
   * `rare-disease_monthly_desktop_201507-202409.json`
   * `rare-disease_monthly_cumulative_201507-202409.json`
@@ -30,9 +37,19 @@ This project analyzes monthly pageview traffic data for Wikipedia articles relat
 ## How to Reproduce the Analysis
 1. Install necessary libraries: `requests`, `pandas`, `matplotlib`.
 2. Run the notebook to acquire the data using the Wikimedia Analytics API. Or use the pre-loaded data found within the repository.
-3. The analysis is performed within the notebook and visualized using `matplotlib`.
+- You can find the collected data in the following JSON files:
+     - `rare-disease_monthly_mobile_201507-202409.json`
+     - `rare-disease_monthly_desktop_201507-202409.json`
+     - `rare-disease_monthly_cumulative_201507-202409.json`
+4. The analysis is performed within the notebook and visualized using `matplotlib`.
 
 ## License and Data Attribution
 * The code in this repository is licensed under the MIT License.
-* Data is sourced from the Wikimedia Analytics API, governed by the [Wikimedia Foundation Terms of Use](https://foundation.wikimedia.org/wiki/Terms_of_Use).
-* This analysis abides by the guidelines outlined by the Wikimedia Foundation for data use in the link above.
+* Data is sourced from the [Wikimedia Analytics API](https://www.mediawiki.org/wiki/Wikimedia_REST_API), and the subset of rare diseases is based on the [National Organization for Rare Diseases (NORD)](https://rarediseases.org) database.
+* The data use adheres to the [Wikimedia Foundation Terms of Use](https://foundation.wikimedia.org/wiki/Terms_of_Use).
+
+## Known Issues or Limitations
+* **API Rate Limits**: The Wikimedia Analytics Pageviews API has rate limits that may affect large-scale data requests. We handle this by adding a delay between requests, but future users should be aware.
+* **Missing Data**: Some articles may have missing data for certain months. This can result in shorter time series for some articles.
+
+
