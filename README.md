@@ -48,6 +48,9 @@ This project analyzes monthly pageview traffic data for Wikipedia articles relat
 * Data is sourced from the [Wikimedia Analytics API](https://www.mediawiki.org/wiki/Wikimedia_REST_API), and the subset of rare diseases is based on the [National Organization for Rare Diseases (NORD)](https://rarediseases.org) database.
 * The data use adheres to the [Wikimedia Foundation Terms of Use](https://foundation.wikimedia.org/wiki/Terms_of_Use).
 
+## Acknowledgments
+This project was developed with the assistance of [ChatGPT](https://openai.com/chatgpt), which helped format code, structure the README, and organize the data and analysis in an efficient and clear manner. All content has been verified and tested by the author.
+
 ## Known Issues or Limitations
 * **API Rate Limits**: The Wikimedia Analytics Pageviews API has rate limits that may affect large-scale data requests. We handle this by adding a delay between requests, but future users should be aware.
 * **Missing Data**: Some articles may have missing data for certain months. This can result in shorter time series for some articles.
