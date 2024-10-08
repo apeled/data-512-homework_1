@@ -6,9 +6,15 @@ This project analyzes monthly pageview traffic data for Wikipedia articles relat
 
 ## Data Collection
 * **API**: [Wikimedia Analytics Pageviews API](https://www.mediawiki.org/wiki/Wikimedia_REST_API)
-* **Data**: Monthly pageviews for articles related to rare diseases
+* **Data**: Monthly pageviews for articles related to rare diseases. Each record in the JSON files includes:
+  * `project`: The project name (e.g., "en.wikipedia").
+  * `article`: The article title.
+  * `granularity`: Set to "monthly".
+  * `timestamp`: The month for the pageviews.
+  * `agent`: The type of agent (e.g., "user").
+  * `views`: The number of pageviews for the month.
 * **Access Types**: Desktop, mobile-app, mobile-web
-* **Data Storage**: JSON files with time series data for each article in the specific subset
+* **Data Storage**: The data is saved in JSON files with time series data for each article:
   * `rare-disease_monthly_mobile_201507-202409.json`
   * `rare-disease_monthly_desktop_201507-202409.json`
   * `rare-disease_monthly_cumulative_201507-202409.json`
@@ -31,7 +37,11 @@ This project analyzes monthly pageview traffic data for Wikipedia articles relat
 ## How to Reproduce the Analysis
 1. Install necessary libraries: `requests`, `pandas`, `matplotlib`.
 2. Run the notebook to acquire the data using the Wikimedia Analytics API. Or use the pre-loaded data found within the repository.
-3. The analysis is performed within the notebook and visualized using `matplotlib`.
+- You can find the collected data in the following JSON files:
+     - `rare-disease_monthly_mobile_201507-202409.json`
+     - `rare-disease_monthly_desktop_201507-202409.json`
+     - `rare-disease_monthly_cumulative_201507-202409.json`
+4. The analysis is performed within the notebook and visualized using `matplotlib`.
 
 ## License and Data Attribution
 * The code in this repository is licensed under the MIT License.
