@@ -50,6 +50,7 @@ This project analyzes monthly pageview traffic data for Wikipedia articles relat
 
 ## Acknowledgments
 This project built upon the sample code developed by Dr. David W. McDonald for use in DATA 512, a course in the UW MS Data Science degree program. This code is provided under the [Creative Commons CC-BY license](https://creativecommons.org/).
+
 This project was developed with the assistance of [ChatGPT](https://openai.com/chatgpt), which helped format code, structure the README, and organize the data and analysis in an efficient and clear manner. All content has been verified and tested by the author.
 
 ## Known Issues or Limitations
